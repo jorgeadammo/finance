@@ -22,8 +22,8 @@ public class Expense {
     @Column(nullable = false, unique = true)
     private String description;
 
-    @Column(nullable = false)
-    private BigDecimal value;
+    @Column(nullable = true)
+    private BigDecimal valueExpense;
 
     @Column(nullable = true)
     private String parcel;
@@ -31,9 +31,8 @@ public class Expense {
     @Column(nullable = true)
     private LocalDate dueDate;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Boolean paid;
-
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "type_expense_id")
